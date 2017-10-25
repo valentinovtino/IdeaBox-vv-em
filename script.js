@@ -4,7 +4,7 @@ var ideasCollection = [];
 $('.save-btn').on('click', newIdea);
 $('.cards').on('click', '.delete', deleteIdea);
 $('.cards').on('click', '.up-vote', upVote);
-
+$('.search').on('keyup', searchFilter);
 $(document).ready(function() {
 	pullFromStorage();
 	displayStoredCoards();
@@ -89,6 +89,21 @@ function upVote() {
 			$(this).parent().find('h3').text('Genius');
 			vote = ('Genius')
 	}
+}
+
+function searchFilter() {
+	var searchInput = $('.search').val().toLowerCase();
+	var searchIdea = $('h1');
+	var searchBody = $('p');
+
+for (var i = 0; i<$('article').length ; i++){
+  var currentArticle = searchIdea[i].innerHTML + searchBody[i].innerHTML;
+  if (currentArticle.toLowerCase().indexOf(searchInput) > -1){
+    $('article')[i].style.display = "";
+  }else{
+    $('article')[i].style.display = "none";
+    }
+  }
 }
 
 
