@@ -1,9 +1,13 @@
+var ideasCollection = [];
+
 // $('.save-btn').on('click', addIdea);
 $('.save-btn').on('click', newIdea);
 $('.cards').on('click', '.delete', deleteIdea);
 $('.cards').on('click', '.up-vote', upVote);
 
 $(document).ready(function() {
+	pullFromStorage();
+	displayStoredCoards();
 	// reloadCards();
 })
 
@@ -28,13 +32,15 @@ function newIdea() {
 	var body = $('.body-input').val();
 	var vote = ('Swill');
 	ideaCard = new Idea (idea, body, vote);
+	ideasCollection.push(ideaCard);
+	sendToStorage(ideasCollection);
 	addIdea(ideaCard);  
-	sendToStorage(ideaCard);
 }
 
 // Sending to the DOM
 function addIdea(ideaCard) {
-	event.preventDefault();
+
+
 	// var idea = $('.idea-input').val();
 	// var body = $('.body-input').val();
 	// var vote = ('Swill')
@@ -52,8 +58,20 @@ function addIdea(ideaCard) {
 }
 
 // Sending to localStorage
-function sendToStorage(ideaCard) {
-		localStorage.setItem(ideaCard.id, JSON.stringify(ideaCard))
+function sendToStorage(ideasCollection) {
+		localStorage.setItem('ideas', JSON.stringify(ideasCollection));
+}
+
+function pullFromStorage() {
+	ideasCollection = JSON.parse(localStorage.getItem('ideas')) || []
+
+}
+
+//Displaying persisted cards 
+function displayStoredCoards() {
+	ideasCollection.forEach(function (idea){
+		addIdea(idea);
+	})
 }
 
 function deleteIdea() {
