@@ -1,37 +1,28 @@
 var ideasCollection = [];
 
-// $('.save-btn').on('click', addIdea);
 $('.save-btn').on('click', newIdea);
 $('.cards').on('click', '.delete', deleteIdea);
 $('.cards').on('click', '.up-vote', upVote);
 $('.search').on('keyup', searchFilter);
+
 $(document).ready(function() {
 	pullFromStorage();
 	displayStoredCoards();
-	// reloadCards();
 })
 
-// function reloadCards() {
-// 	for(var i in localStorage) {
-// 		addIdea(JSON.parse(localStorage[i]))
-// 	}
-// }
-
-function Idea(idea, body, vote) {
+function Idea(idea, body, quality) {
 	this.idea=idea;
 	this.body=body;
 	this.id=Date.now();
-	this.vote=vote;
+	this.quality= quality || 'swill';
 }
-
 
 // Collecting user input information beforing "shipping" off to DOM and localStorage
 function newIdea() {
 	event.preventDefault();
 	var idea = $('.idea-input').val();
 	var body = $('.body-input').val();
-	var vote = ('Swill');
-	ideaCard = new Idea (idea, body, vote);
+	ideaCard = new Idea(idea, body);
 	ideasCollection.push(ideaCard);
 	sendToStorage(ideasCollection);
 	addIdea(ideaCard);  
@@ -39,22 +30,17 @@ function newIdea() {
 
 // Sending to the DOM
 function addIdea(ideaCard) {
-
-
-	// var idea = $('.idea-input').val();
-	// var body = $('.body-input').val();
-	// var vote = ('Swill')
-	// ideaCard
-		// console.log(ideaCard.idea)
-
 	$('.cards').append(`<article id="${ideaCard.id}" class="idea-cards">
 										<h2 contenteditable="true" class="append-idea">${ideaCard.idea}</h2>
 										<p contenteditable="true" class="append-body">${ideaCard.body}</p>
 										<button class="up-vote"></button>
 										<button class="down-vote"></button>
 										<button class="delete"></button>
-										<h3 class="quality">${ideaCard.vote}</h3>
-										</article>`)
+										<h3 class="quality">${ideaCard.quality}</h3>
+										</article>`);
+	$('.idea-input').val("");
+  $('.body-input').val("");
+  $('.idea-input').focus();
 }
 
 // Sending to localStorage
@@ -64,7 +50,6 @@ function sendToStorage(ideasCollection) {
 
 function pullFromStorage() {
 	ideasCollection = JSON.parse(localStorage.getItem('ideas')) || []
-
 }
 
 //Displaying persisted cards 
@@ -81,23 +66,20 @@ function deleteIdea() {
 
 function deleteFromStorage(id) {
 	pullFromStorage();
-var index = ideasCollection.findIndex( function(idea) {
+	var index = ideasCollection.findIndex( function(idea) {
   return idea.id === id;
-});
+	});
  ideasCollection.splice(index, 1);
  sendToStorage(ideasCollection)
 }
 
-
 function upVote() {
-	var vote = ('Swill');
-	if(vote === 'Swill') {
-		$(this).parent().find('h3').text('Plausible');
-  	vote = ('Plausible');
-
-	} else if (vote === 'Plausible') {
-			$(this).parent().find('h3').text('Genius');
-			vote = ('Genius')
+	//refactor this repeated code!! 
+	var quality = $(this).parent().find('h3').text()
+	if(quality === 'swill') {
+  	$(this).parent().find('h3').text("plausible")
+	} else {
+		$(this).parent().find('h3').text('genius');
 	}
 }
 
@@ -115,10 +97,6 @@ for (var i = 0; i<$('article').length ; i++){
     }
   }
 }
-
-// function updateCard() {
-// 	if 
-// }
 
 
 
