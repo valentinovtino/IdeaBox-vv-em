@@ -3,6 +3,7 @@ var ideasCollection = [];
 $('.save-btn').on('click', newIdea);
 $('.cards').on('click', '.delete', deleteIdea);
 $('.cards').on('click', '.up-vote', upVote);
+$('.cards').on('click', '.down-vote', downVote)
 $('.search').on('keyup', searchFilter);
 
 $(document).ready(function() {
@@ -81,6 +82,15 @@ function upVote() {
 	} else {
 		$(this).parent().find('h3').text('genius');
 	}
+}
+
+function downVote() {
+  var quality = $(this).parent().find('h3').text()
+  if(quality === 'genius') {
+    $(this).parent().find('h3').text("plausible")
+  } else {
+    $(this).parent().find('h3').text('swill');
+  }
 }
 
 function searchFilter() {
