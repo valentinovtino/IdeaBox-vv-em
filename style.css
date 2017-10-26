@@ -174,7 +174,29 @@ form {
 	justify-content: space-between;
 }
 
+@media only screen and (max-width: 400px) {
+		form {
+			width: 92%;
+		}
 
+		.body-input{
+			height: 100px;
+			t
+		}
+
+		.save-btn {
+			height: 42px;
+			margin: 5px 0 5px 0;
+		}
+		
+		.bottom {
+			height: 50%;
+		}
+
+		.top{
+			height: 50%
+		}
+}
 
 
 
