@@ -36,9 +36,11 @@ function addIdea(ideaCard) {
 										<button class="delete"></button>
 										</div>
 										<p contenteditable="true" class="append-body">${ideaCard.body}</p>
-										<button class="up-vote"></button>
+										<div class="card-bottom">
+                    <button class="up-vote"></button>
 										<button class="down-vote"></button>
 										<h3 class="quality">${ideaCard.quality}</h3>
+                    </div>
 										</article>`);
 	$('.idea-input').val("");
   $('.body-input').val("");
