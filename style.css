@@ -154,6 +154,7 @@ form {
 .delete {
 	background-color: white;
 	background-image: url("images/delete.svg");
+	background-repeat: no-repeat;
 	border-radius: 100%;
 	border: none;
 	padding: 0;
@@ -196,7 +197,16 @@ form {
 		.top{
 			height: 50%
 		}
-}
+
+		.search{
+			width: 92%;
+			margin: 5px 0 5px 13px;
+		}
+
+		.idea-cards{
+			width: 92%;
+		}
+};
 
 
 
