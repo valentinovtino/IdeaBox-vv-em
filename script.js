@@ -4,7 +4,7 @@ var ideasCollection = [];
 $('.save-btn').on('click', newIdea);
 $('.cards').on('click', '.delete', deleteIdea);
 $('.cards').on('click', '.up-vote', upVote);
-
+$('.search').on('keyup', searchFilter);
 $(document).ready(function() {
 	pullFromStorage();
 	displayStoredCoards();
@@ -48,8 +48,8 @@ function addIdea(ideaCard) {
 		// console.log(ideaCard.idea)
 
 	$('.cards').append(`<article id="${ideaCard.id}" class="idea-cards">
-										<h1 class="append-idea">${ideaCard.idea}</h1>
-										<p class="append-body">${ideaCard.body}</p>
+										<h2 contenteditable="true" class="append-idea">${ideaCard.idea}</h2>
+										<p contenteditable="true" class="append-body">${ideaCard.body}</p>
 										<button class="up-vote"></button>
 										<button class="down-vote"></button>
 										<button class="delete"></button>
@@ -76,6 +76,16 @@ function displayStoredCoards() {
 
 function deleteIdea() {
 	$(this).parents('.idea-cards').remove();
+	deleteFromStorage()
+}
+
+function deleteFromStorage(id) {
+	pullFromStorage();
+var index = ideasCollection.findIndex( function(idea) {
+  return idea.id === id;
+});
+ ideasCollection.splice(index, 1);
+ sendToStorage(ideasCollection)
 }
 
 
@@ -91,7 +101,24 @@ function upVote() {
 	}
 }
 
+function searchFilter() {
+	var searchInput = $('.search').val().toLowerCase();
+	var searchIdea = $('h2');
+	var searchBody = $('p');
 
+for (var i = 0; i<$('article').length ; i++){
+  var currentArticle = searchIdea[i].innerHTML + searchBody[i].innerHTML;
+  if (currentArticle.toLowerCase().indexOf(searchInput) > -1){
+    $('article')[i].style.display = "";
+  }else{
+    $('article')[i].style.display = "none";
+    }
+  }
+}
+
+// function updateCard() {
+// 	if 
+// }
 
 
 

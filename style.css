@@ -87,11 +87,11 @@ form {
 	box-sizing: border-box;
 	margin: auto;
 	width: 40%;
-	border: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 .append-idea {
-	margin: 0 100% 0% 0%;
+	margin: 0 60% 0% 0%;
 }
 
 
