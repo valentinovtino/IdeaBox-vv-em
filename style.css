@@ -107,10 +107,17 @@ form {
 	color: #939598;
 }
 
+.quality-label {
+	color: #6D6E71
+	font-size 18px;
+	font-family: serif;
+	display: inline-block;
+}
+
 .quality {
 	padding-top: 20px;
 	padding-bottom: 7px;
-	margin-left: 20px;
+	margin-left: 0;
 	font-size: 18px;
 	display: inline-block;
 	font-family: serif;
