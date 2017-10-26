@@ -189,6 +189,21 @@ form {
 	align-items: center;
 }
 
+@media only screen and (max-width: 1100px){
+		form{
+			width: 90%;
+		}
+
+		.search{
+			width: 90%;
+			margin: 0 0 0 5%;
+		}
+
+		.idea-cards{
+			width: 90%;
+		}
+}
+
 @media only screen and (max-width: 400px) {
 		form {
 			width: 92%;
@@ -196,7 +211,7 @@ form {
 
 		.body-input{
 			height: 100px;
-			t
+			padding: 0px 0px 78px 4px;
 		}
 
 		.save-btn {
@@ -205,11 +220,11 @@ form {
 		}
 		
 		.bottom {
-			height: 50%;
+			height: 43%;
 		}
 
 		.top{
-			height: 50%
+			height: 53%
 		}
 
 		.search{
