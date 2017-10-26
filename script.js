@@ -32,11 +32,12 @@ function newIdea() {
 // Sending to the DOM
 function addIdea(ideaCard) {
 	$('.cards').append(`<article id="${ideaCard.id}" class="idea-cards">
-										<h2 contenteditable="true" class="append-idea">${ideaCard.idea}</h2>
+										<div class="card-top"><h2 contenteditable="true" class="append-idea">${ideaCard.idea}</h2> 
+										<button class="delete"></button>
+										</div>
 										<p contenteditable="true" class="append-body">${ideaCard.body}</p>
 										<button class="up-vote"></button>
 										<button class="down-vote"></button>
-										<button class="delete"></button>
 										<h3 class="quality">${ideaCard.quality}</h3>
 										</article>`);
 	$('.idea-input').val("");

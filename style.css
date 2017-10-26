@@ -13,10 +13,11 @@ body {
 
 h1 {
 	color: #00A79D;
+	margin-top: 19px;
 	font-family: 'Roboto Slab', serif;
 	font-size: 3em;
 	font-weight: 700; 
-	padding: 0 0 2% 0; 
+	padding: 0; 
 	text-align: center;
 }
 
@@ -38,7 +39,7 @@ form {
 	background-color: #E5F3F2;
 	display:flex;
 	flex-direction: column;
-	height: 35%;
+	height: 270px;
 	justify-content:center;
 	width: 100%;
 }
@@ -87,20 +88,91 @@ form {
 	box-sizing: border-box;
 	margin: auto;
 	width: 40%;
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid #D1D3D4;
+	padding-bottom: 20px;
+	color: #6D6E71;
 }
 
 .append-idea {
-	margin: 0 60% 0% 0%;
+	margin: 20px 0% 0% 0%;
+	font-weight: bold;
+	font-family: serif;
+	font-size: 30px;
+	color: #6D6E71;
+	padding-bottom: 18px;
 }
 
+.append-body {
+	font-size: 20px;
+	color: #939598;
+}
 
+.quality {
+	padding-top: 20px;
+	padding-bottom: 7px;
+	margin-left: 20px;
+	font-size: 18px;
+	display: inline-block;
+	font-family: serif;
+	color: #6D6E71;
+}
 
+.up-vote {
+	background-color: white;
+	background-image: url("images/upvote.svg");
+	border-radius: 100%;
+	border: none;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+	margin-top: 30px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
 
+.up-vote:hover{
+	background-image: url("images/upvote-hover.svg");
+}
 
+.down-vote {
+	background-color: white;
+	background-image: url("images/downvote.svg");
+	border-radius: 100%;
+	border: none;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+	margin-top: 30px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
 
+.down-vote:hover{
+	background-image: url("images/downvote-hover.svg");
+}
 
+.delete {
+	background-color: white;
+	background-image: url("images/delete.svg");
+	border-radius: 100%;
+	border: none;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+	margin-top: 30px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
 
+.delete:hover{
+	background-image: url("images/delete-hover.svg");
+}
+
+.card-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
 
 
