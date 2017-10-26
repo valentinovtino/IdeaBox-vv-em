@@ -39,7 +39,9 @@ function addIdea(ideaCard) {
 										<div class="card-bottom">
                     <button class="up-vote"></button>
 										<button class="down-vote"></button>
+                    <label="quality-label">quality:
 										<h3 class="quality">${ideaCard.quality}</h3>
+                    </label>
                     </div>
 										</article>`);
 	$('.idea-input').val("");
